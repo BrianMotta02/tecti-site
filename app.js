@@ -3,6 +3,23 @@
   var $ = function (s, c) { return (c || document).querySelector(s); };
   var $$ = function (s, c) { return Array.prototype.slice.call((c || document).querySelectorAll(s)); };
 
+  // intro loader: once per session, skipped with reduced motion
+  var root = document.documentElement, loader = $('#loader');
+  var skipIntro = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  try { skipIntro = skipIntro || sessionStorage.getItem('tectiIntro') === '1'; } catch (e) {}
+  function finishIntro() {
+    root.classList.add('ready');
+    loader.classList.add('done');
+    root.style.overflow = '';
+    setTimeout(function () { loader.remove(); }, 1000);
+  }
+  if (skipIntro) { loader.remove(); root.classList.add('ready'); }
+  else {
+    root.style.overflow = 'hidden';
+    try { sessionStorage.setItem('tectiIntro', '1'); } catch (e) {}
+    setTimeout(finishIntro, 1900);
+  }
+
   // year
   $('#y').textContent = new Date().getFullYear();
 
