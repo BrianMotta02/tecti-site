@@ -268,3 +268,14 @@ address{font-style:normal;font-size:1.3rem;margin-top:14px}
 :root[data-theme=dark] .loader__socket{box-shadow:inset 0 0 0 2px #35557d}
 .msg--tag{align-self:center;max-width:none;background:rgba(0,0,0,.14);color:var(--muted);font-size:.8rem;padding:3px 12px;border-radius:999px;box-shadow:none}
 :root[data-theme=dark] .msg--tag{background:rgba(255,255,255,.08)}
+
+/* google reviews */
+.proof{grid-column:1/-1;margin-top:32px;display:grid;gap:22px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:24px}
+.proof__score{display:grid;gap:2px;justify-items:start}
+.proof__score b{font:800 3.4rem/1 var(--f-head);letter-spacing:-.03em}
+.stars{color:#f2b01e;font-size:1.3rem;letter-spacing:2px}
+.proof__score small{color:var(--muted)}
+.proof__quote{margin:0}
+.proof__quote blockquote{margin:0;font:600 1.2rem/1.4 var(--f-head)}
+.proof__quote figcaption{margin-top:8px;color:var(--muted);font-size:.92rem}
+@media (min-width:900px){.proof{grid-template-columns:auto 1fr auto;gap:40px;padding:28px 36px}}
